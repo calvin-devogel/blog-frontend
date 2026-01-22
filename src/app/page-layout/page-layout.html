@@ -1,0 +1,15 @@
+<div class="layout-grid">
+    <aside class="sidebar left">
+        <ng-content select="[left]"></ng-content>
+    </aside>
+
+    <main class="content">
+        <article class="markdown-body">
+        <ng-content></ng-content>
+        </article>
+    </main>
+
+    <aside class="sidebar right">
+        <ng-content select="[right]"></ng-content>
+    </aside>
+</div>

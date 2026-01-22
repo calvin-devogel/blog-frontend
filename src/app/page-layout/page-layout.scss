@@ -1,0 +1,30 @@
+.layout-grid {
+    display: grid;
+    grid-template-columns: 1fr minmax(300px, 800px) 1fr;
+    // gap: 2rem;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    // padding: 2rem 1rem;
+    box-sizing: border-box;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+        color: #007bff;
+    }
+}

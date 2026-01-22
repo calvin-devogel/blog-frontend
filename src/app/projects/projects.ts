@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { PageLayout } from '../page-layout/page-layout';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-projects',
   imports: [PageLayout],
-  templateUrl: './home.html',
-  styleUrl: './home.scss',
+  templateUrl: './projects.html',
+  styleUrl: './projects.scss',
 })
-export class Home {
+export class Projects {
 
 }

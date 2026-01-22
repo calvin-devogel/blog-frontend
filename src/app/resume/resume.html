@@ -1,1 +1,106 @@
-<p>resume works!</p>
+<app-page-layout>
+    <div left class="links">
+        <!-- Placeholder for potential links like PDF download or LinkedIn -->
+    </div>
+    <div class="resume-content">
+        <section>
+        @if (resumeData?.cv?.sections?.summary; as summary) {
+            <h2 class="section-header" style="margin-top: 0;">Summary</h2>
+            @for (paragraph of summary; track paragraph) {
+                <p class="summary-text">{{ paragraph }}</p>
+            }
+        }
+        </section>
+
+        <section>
+            @if (resumeData?.cv?.sections?.skills; as skills) {
+                <h2 class="section-header">Skills</h2>
+                <div class="skills-container">
+                    @for (skillGroup of skills; track skillGroup) {
+                        <div class="skill-group">
+                            <h3>{{ skillGroup.label }}</h3>
+                            <div class="tags">
+                                @for (skill of getSkillTags(skillGroup.details); track skill) {
+                                    <span class="tag">{{ skill }}</span>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </section>
+
+        <section>
+            @if (resumeData?.cv?.sections?.experience; as experience) {
+                <h2 class="section-header">Experience</h2>
+                @for (experienceItem of experience; track experienceItem) {
+                    <div class="experience-item">
+                        <div class="header-row">
+                            <h3 class="role">{{ experienceItem.position }}</h3>
+                            <span class="date">{{ formatDate(experienceItem.start_date) }} — {{ formatDate(experienceItem.end_date) }}</span>
+                        </div>
+                        <div class="company-row">{{ experienceItem.company }} — {{ experienceItem.location }}</div>
+                        <ul>
+                            @for (highlight of experienceItem.highlights; track highlight) {
+                                <li>{{ highlight }}</li>
+                            }
+                        </ul>
+                    </div>
+                }
+            }
+        </section>
+
+        <section>
+            @if (resumeData?.cv?.sections?.education; as education) {
+                <h2 class="section-header">Education</h2>
+                @for (educationItem of education; track educationItem) {
+                    <div class="education-item">
+                        <div class="header-row">
+                            <h3 class="role">{{ educationItem.institution }}</h3>
+                            <span class="date">{{ formatDate(educationItem.end_date) }}</span>
+                        </div>
+                        <div class="company-row">{{ educationItem.degree }} in {{ educationItem.area }}</div>
+                        <p><strong>Relevant Coursework:</strong> {{ educationItem.summary }}</p>
+                        <ul class="activities">
+                            @for (highlight of educationItem.highlights; track highlight) {
+                                <li>
+                                    <strong>{{ asComplexHighlight(highlight)['key'] }}</strong>: {{ asComplexHighlight(highlight)['value'] }}
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+                
+            }
+        </section>
+
+        <section>
+            <h2 class="section-header">Education</h2>
+            
+            <div class="education-item">
+                <div class="header-row">
+                    <h3 class="role">University of Wisconsin-Madison</h3>
+                    <span class="date">Aug 2023</span>
+                </div>
+                <div class="company-row">BS in Computer Science</div>
+                <p><strong>Relevant Coursework:</strong> Operating Systems, Algorithms, Software Engineering, Matrix Methods for Machine Learning, Linear Algebra, Combinatorics</p>
+                
+                <ul class="activities">
+                    <li>
+                        <strong>President of the UW-Madison Fencing Club (2017-2018)</strong>
+                        Responsible for communicating with USA Fencing and UW Madison RecSports to maintain compliance, schedule competitions, organize travel, and allocate funding.
+                    </li>
+                    <li>
+                        <strong>NOBE UW-Madison Chapter Board Member (2015-2016)</strong>
+                        Worked with local businesses to organize fundraisers, and developed and scheduled inter-organization networking events.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div right>
+        <div class="timeline">
+        </div>
+    </div>
+</app-page-layout>

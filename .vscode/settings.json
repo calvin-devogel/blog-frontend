@@ -1,0 +1,8 @@
+{
+    "yaml.schemas": {
+        "https://www.schemastore.org/yamllint.json": [
+            "file:///Users/calvin/angular/blog-frontend/public/resume.yaml",
+            "file:///Users/calvin/angular/blog-frontend/src/assets/resume.yaml"
+        ]
+    }
+}

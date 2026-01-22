@@ -45,3 +45,5 @@ Thumbs.db
 # images I don't own lol
 *.svg
 *.png
+
+src/assets/*
