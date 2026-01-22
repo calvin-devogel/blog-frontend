@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { parse } from 'yaml';
 import { map, Observable } from 'rxjs';
 import { ResumeData } from '../interfaces/resume-data';
-import { url } from 'inspector/promises';
 
 @Injectable({
   providedIn: 'root',

@@ -31,13 +31,4 @@ export class Resume implements OnInit {
     const date = new Date(dateStr);
     return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric'});
   }
-
-  isComplexHighlight(highlight: string | {[key: string]: string}): boolean {
-    return typeof highlight === 'object' && highlight !== null;
-  }
-
-  asComplexHighlight(highlight: any): {[key: string]: string} {
-    return highlight;
-  }
-
 }

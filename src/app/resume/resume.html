@@ -60,13 +60,16 @@
                             <span class="date">{{ formatDate(educationItem.end_date) }}</span>
                         </div>
                         <div class="company-row">{{ educationItem.degree }} in {{ educationItem.area }}</div>
-                        <p><strong>Relevant Coursework:</strong> {{ educationItem.summary }}</p>
+                        <p class="coursework-summary"><strong>Relevant Coursework:</strong> {{ educationItem.summary }}</p>
                         <ul class="activities">
-                            @for (highlight of educationItem.highlights; track highlight) {
-                                <li>
-                                    <strong>{{ asComplexHighlight(highlight)['key'] }}</strong>: {{ asComplexHighlight(highlight)['value'] }}
+                           @for (highlight of educationItem.highlights; track highlight) {
+                                 <li>
+                                    <strong>{{ highlight.organization }}</strong>
+                                    <ul>
+                                        <li class="activity-detail">{{ highlight.details }}</li>
+                                    </ul>
                                 </li>
-                            }
+                           }
                         </ul>
                     </div>
                 }
@@ -74,29 +77,6 @@
             }
         </section>
 
-        <section>
-            <h2 class="section-header">Education</h2>
-            
-            <div class="education-item">
-                <div class="header-row">
-                    <h3 class="role">University of Wisconsin-Madison</h3>
-                    <span class="date">Aug 2023</span>
-                </div>
-                <div class="company-row">BS in Computer Science</div>
-                <p><strong>Relevant Coursework:</strong> Operating Systems, Algorithms, Software Engineering, Matrix Methods for Machine Learning, Linear Algebra, Combinatorics</p>
-                
-                <ul class="activities">
-                    <li>
-                        <strong>President of the UW-Madison Fencing Club (2017-2018)</strong>
-                        Responsible for communicating with USA Fencing and UW Madison RecSports to maintain compliance, schedule competitions, organize travel, and allocate funding.
-                    </li>
-                    <li>
-                        <strong>NOBE UW-Madison Chapter Board Member (2015-2016)</strong>
-                        Worked with local businesses to organize fundraisers, and developed and scheduled inter-organization networking events.
-                    </li>
-                </ul>
-            </div>
-        </section>
     </div>
 
     <div right>

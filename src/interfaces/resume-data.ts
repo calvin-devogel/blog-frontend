@@ -31,5 +31,10 @@ export interface Education {
     degree: string;
     end_date: string;
     summary?: string;
-    highlights?: (string | {[key: string]: string})[];
+    highlights?: EducationHighlight[];
+}
+
+export interface EducationHighlight {
+    organization: string,
+    details: string,
 }
