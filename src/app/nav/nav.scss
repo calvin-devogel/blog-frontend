@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    font-family: -apple-system, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+        color: #007bff;
+    }
+
+    &.icon-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+.nav-icon {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    fill: currentColor;
+}
